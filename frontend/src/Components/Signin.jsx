@@ -38,7 +38,7 @@ export function Signin(){
     }
     return (
         <div className="bg-black h-screen w-screen">
-            <div className="bg-white px-auto py-auto">
+            <div className="bg-white">
 
 
             <label className= "text-black" htmlFor="email">Email:</label>
