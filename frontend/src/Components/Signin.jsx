@@ -37,8 +37,8 @@ export function Signin(){
 
     }
     return (
-        <div className="bg-black h-screen w-screen">
-            <div className="bg-white">
+        <div className="bg-black h-screen w-screen inline-flex">
+            <div className="bg-white mx-auto my-auto h-1/3 w-1/4">
 
 
             <label className= "text-black" htmlFor="email">Email:</label>
@@ -47,7 +47,7 @@ export function Signin(){
             }}/><br/>
 
             <label className="text-black"htmlFor="password">Password:</label>
-            <input className = "bg-black" name = "password" id = "passwordSignin" type = "password" onChange={(e)=> {
+            <input className = "bg-whitek" name = "password" id = "passwordSignin" type = "password" onChange={(e)=> {
                 setPassword(e.target.value)
             }}/> <br />
 
