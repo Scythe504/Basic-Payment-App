@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
+function Alreadyauserprompt(){
+    return (<span><p>Already a user?</p><Link to={"/signin"}>Sign In</Link></span>)
+}
 export function Signup() {
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
 const [msg, setMsg] = useState("");
+const [link, setLink] = useState(<></>);
 
+const navigate = useNavigate("/home")
     const submit = (() => {
         fetch("http://localhost:3000/api/v1/user/signup", {
             method: "POST",
@@ -28,43 +34,62 @@ const [msg, setMsg] = useState("");
             })
         }).then((response) => {
             if (response.ok) {
-                setMsg("Signup success");
                 return response.json();
             }
             else {
+                setMsg(response.message)
                 throw new Error("Invalid inputs");
             }
-        }).catch(() => {
-            setMsg("Invalid inputs");
-            console.log("invalid inputs");
+        }).then((data)=>{
+            setMsg(data.message);
+            localStorage.setItem('token',data.token);
+            navigate("/home");
+        }).catch((e) => {
+            setMsg(e.message);
+            setLink(<Alreadyauserprompt/>)
+            console.error(`error : ${e.status,e}`);
         })
     })
     
 
     return (
-        <div>
-            <label htmlFor="email">Email:</label>
-            <input name="email" type="text" onChange={(e) => {
-                setUsername(e.target.value);
-            }} />
+        
+            <div className="bg-slate-300 h-screen flex justify-center">
+            <div className="flex flex-col justify-center">
+            <div className="rounded-lg bg-white text-center p-2 h-max px-4" style={{ width: 360}}>
 
-            <label htmlFor="password">Password:</label>
-            <input name="password" type="password" onChange={(e) => {
-                setPassword(e.target.value);
-            }} />
+            <div className="text-center text-4xl font-bold pt-6">Sign Up</div>
+            <div className="text-center text-md pt-1 px-4 pb-4">SignUp with credentials</div>
 
-            <label htmlFor="firstName">First Name:</label>
-            <input name="firstName" type="text" onChange={(e) => {
-                setFirstName(e.target.value);
+            <div className="py-2 text-left">
+            <label className="font-semibold text-2xl" htmlFor="email">Email:</label><br />
+            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="emailSignin" type="text" placeholder="email@gmail.com" onChange={(e) => {
+                setUsername(e.target.value)
             }} />
-
-            <label htmlFor="lastName">Last Name:</label>
-            <input name="lastName" type="text" onChange={(e) => {
+            </div>
+            <div className="py-2 text-left">
+            <label className="font-semibold text-2xl" htmlFor="email">Password:</label><br />
+            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1" name="password" id="passwordSignup" type="password" onChange={(e) => {
+                setPassword(e.target.value)
+            }} />
+            </div>
+            <div className="py-2 text-left">
+            <label className="font-semibold text-2xl" htmlFor="email">First Name:</label><br />
+            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="emailSignin" type="text" placeholder="Ledha" onChange={(e) => {
+                setFirstName(e.target.value)
+            }} />
+            </div>
+            <div className="py-2 text-left">
+            <label className="font-semibold text-2xl" htmlFor="email">Last Name:</label><br />
+            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="emailSignin" type="text" placeholder="Hai" onChange={(e) => {
                 setLastName(e.target.value)
             }} />
-
-            <button onClick={submit}>Submit</button>
-            <p>{msg}</p>
-        </div>
+            </div>
+            <div className="py-2"><button onClick={submit} type="button" className =" w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign Up</button></div>
+            <p className="text-md font-medium pb-24">{msg}{link}</p>
+            </div>
+            </div>
+            </div>
+        
     )
 }

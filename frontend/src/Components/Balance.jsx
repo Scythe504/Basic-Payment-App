@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Balance } from "./Dashboard-Comps/Balance";
 
 
 export const UserBalance = ()=>{
@@ -29,6 +30,6 @@ export const UserBalance = ()=>{
     
 
         return (
-            <span>{balance}</span>
+            <div><Balance value={balance}/></div>
         )
 }

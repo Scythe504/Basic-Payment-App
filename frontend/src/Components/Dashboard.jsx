@@ -3,6 +3,8 @@ import { UserBalance } from './Balance'
 import { UserList } from './UsersFilter'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Appbar } from './Dashboard-Comps/Appbar';
+
 export function Dashboard() {
     const navigate = useNavigate();
     useEffect(() => {
@@ -12,25 +14,14 @@ export function Dashboard() {
         } 
         
         if (localStorage.getItem('token') === null) {
-            navigate("/");
+            navigate("/signin");
         }
     }, [localStorage.getItem('token')]);
     return (
-        <div>
-            <div>
-                <span className="bg-black">
-                    Payments App
-                </span>
-                <span>
-                    Hello, User
-                </span>
-                <span>
-                    <VscAccount />
-                </span>
-            </div>
-            <div>Your Balance {<UserBalance />}</div>
-            <UserList></UserList>
-        </div>
-
+       <div>
+            <Appbar/>
+            <UserBalance/>
+            <UserList/>
+       </div>
     )
 }
