@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 
 function SignupText() {
-    return <Link to={"/user/signup"}>Signup</Link>
+    return <Link to={"/signup"}>Signup</Link>
 }
 export function Signin() {
     const [username, setUsername] = useState("");

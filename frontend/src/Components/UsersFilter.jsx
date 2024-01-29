@@ -35,21 +35,21 @@ export function UserList() {
     }
     
     const usersLists = userData.map(user =>
-        <div className="flex justify-between" key={user._id}>
+        <div className="flex justify-between ml-4 mt-4" key={user._id}>
         <div className="flex">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
                     {user.firstName[0]}
                 </div>
             </div>
-            <div className="flex flex-col justify-center h-ful">
+            <div className="flex flex-col justify-center h-full">
                 <div>
                     {user.firstName} {user.lastName}
                 </div>
             </div>
         </div>
 
-        <div className="flex flex-col justify-center h-ful">
+        <div className="flex flex-col justify-center h-full mr-4 mt-2">
             <button className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-blue-500 text-white" onClick={()=>handleClick({userId : user._id, firstName : user.firstName, lastName : user.lastName})}>Send Money</button>
         </div>
     </div>
