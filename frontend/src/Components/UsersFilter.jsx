@@ -50,7 +50,7 @@ export function UserList() {
         </div>
 
         <div className="flex flex-col justify-center h-ful">
-            <button onClick={()=>handleClick({userId : user._id, firstName : user.firstName, lastName : user.lastName})}>Send Money</button>
+            <button className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-blue-500 text-white" onClick={()=>handleClick({userId : user._id, firstName : user.firstName, lastName : user.lastName})}>Send Money</button>
         </div>
     </div>
     )
