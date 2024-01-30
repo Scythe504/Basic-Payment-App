@@ -5,7 +5,10 @@ const rootRouter = require("./routes/index");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin : 'https://ubiquitous-meme-rjr69w544pvfwj46-5173.app.github.dev',
+    credentials : true,
+}));
 app.use(express.json());
 
 app.use("/api/v1", rootRouter);
