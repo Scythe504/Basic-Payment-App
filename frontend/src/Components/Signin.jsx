@@ -13,7 +13,7 @@ export function Signin() {
     const navigate = useNavigate()
     //Posting signing req
     const submit = () => {
-        fetch("http://localhost:3000/api/v1/user/signin", {
+        fetch("https://ubiquitous-meme-rjr69w544pvfwj46-3000.app.github.dev/api/v1/user/signin", {
             method: "POST",
             headers: {
                 "Accept": 'application/json',

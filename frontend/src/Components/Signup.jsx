@@ -14,7 +14,7 @@ const [link, setLink] = useState(<></>);
 
 const navigate = useNavigate("/home")
     const submit = (() => {
-        fetch("http://localhost:3000/api/v1/user/signup", {
+        fetch("https://ubiquitous-meme-rjr69w544pvfwj46-3000.app.github.dev/api/v1/user/signup", {
             method: "POST",
             headers: {
                 'Application': 'application/json',

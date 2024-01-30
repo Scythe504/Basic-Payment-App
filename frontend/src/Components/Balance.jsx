@@ -7,7 +7,7 @@ export const UserBalance = ()=>{
     
     useEffect(()=>{
         const currentBalance = async ()=>{
-        const response = await fetch("http://localhost:3000/api/v1/account/balance",{
+        const response = await fetch("https://ubiquitous-meme-rjr69w544pvfwj46-3000.app.github.dev/api/v1/account/balance",{
                 method : "GET",
                 headers: {
                     'Accept' : 'application/json',

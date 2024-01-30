@@ -5,7 +5,7 @@ export function Transaction(){
     const[msg,setMsg] = useState("")
     
     const sendMoneyOnClick = (()=>{
-            fetch(`http://localhost:3000/api/v1/account/transfer`,{
+            fetch(`https://ubiquitous-meme-rjr69w544pvfwj46-3000.app.github.dev/api/v1/account/transfer`,{
                 method: 'POST',
                 headers : {
                     'Accept' : 'application/json',
