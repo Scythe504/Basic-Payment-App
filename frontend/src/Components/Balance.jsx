@@ -11,7 +11,7 @@ export const UserBalance = ()=>{
                 method : "GET",
                 headers: {
                     'Accept' : 'application/json',
-                    
+                    'credentials' : 'include',
                     'Authorization' : `Bearer ${localStorage.getItem('token')}`
                 }
             })

@@ -25,6 +25,7 @@ const navigate = useNavigate("/home")
                     firstName: firstName,
                     lastName: lastName
                 }).length.toString(),
+                'credentials' : 'include',
             },
             body: JSON.stringify({
                 username: username,

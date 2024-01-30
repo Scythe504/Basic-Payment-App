@@ -8,12 +8,13 @@ export function UserList() {
     const [userData, setUserData] = useState([]);
     const [word,setWord] = useState("")
     const setName = useSetRecoilState(otherUser);
-    useEffect(() => {
+    
         async function fetchList() {
             const response = await fetch(`https://ubiquitous-meme-rjr69w544pvfwj46-3000.app.github.dev/api/v1/user/bulk/?filter=${word}`, {
                 method: "GET",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'credentials' : 'include',
                 }
             })
             if (!response.ok) {
@@ -24,8 +25,10 @@ export function UserList() {
                 setUserData(data.user);
             }
         }
-        fetchList().catch(e => console.error(e));
-    }, [word]);
+        useEffect(()=>{
+            fetchList().catch(e => console.error(e));
+        },[word]);
+    
 
     const handleClick = function ({userId , firstName, lastName}){
         sessionStorage.setItem('userId' , userId)
