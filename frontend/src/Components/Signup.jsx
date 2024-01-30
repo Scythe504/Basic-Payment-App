@@ -63,7 +63,7 @@ const navigate = useNavigate("/home")
 
             <div className="py-2 text-left">
             <label className="font-semibold text-2xl" htmlFor="email">Email:</label><br />
-            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="emailSignin" type="text" placeholder="email@gmail.com" onChange={(e) => {
+            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="emailSignup" type="text" placeholder="email@gmail.com" onChange={(e) => {
                 setUsername(e.target.value)
             }} />
             </div>
@@ -75,13 +75,13 @@ const navigate = useNavigate("/home")
             </div>
             <div className="py-2 text-left">
             <label className="font-semibold text-2xl" htmlFor="email">First Name:</label><br />
-            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="emailSignin" type="text" placeholder="Ledha" onChange={(e) => {
+            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="firstNamesign" type="text" placeholder="Ledha" onChange={(e) => {
                 setFirstName(e.target.value)
             }} />
             </div>
             <div className="py-2 text-left">
             <label className="font-semibold text-2xl" htmlFor="email">Last Name:</label><br />
-            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="emailSignin" type="text" placeholder="Hai" onChange={(e) => {
+            <input className="text-sm border-2 border-r-2 rounded-md border-slate-800 w-full px-2 py-1"name="email" id="lastNamesign" type="text" placeholder="Hai" onChange={(e) => {
                 setLastName(e.target.value)
             }} />
             </div>
