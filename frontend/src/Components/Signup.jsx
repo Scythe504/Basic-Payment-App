@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Alreadyauserprompt(){
-    return (<span><p>Already a user?</p><Link to={"/signin"}>Sign In</Link></span>)
+    return (<><p>Already a user?</p><span className="underline hover:text-color-600"><Link to={"/signin"}>Sign In</Link></span></>)
 }
 export function Signup() {
 const [username, setUsername] = useState("");
